@@ -1,0 +1,15 @@
+src=$(wildcard *.c)
+obj=$(patsubst %.c, %.o, $(src))
+
+ALL:a.out
+a.out:$(obj)
+	gcc $^ -o $@
+add.o:add.c 
+	gcc -c $< -o $@
+sub.o:sub.c
+	gcc -c $< -o $@
+test.o:test.c
+	gcc -c $< -o $@
+
+clean:
+	-rm -rf $(obj) a.out

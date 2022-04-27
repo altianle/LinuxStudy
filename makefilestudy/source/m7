@@ -1,0 +1,12 @@
+src=$(wildcard ../source/*.c)
+obj=$(patsubst ../source/%.c, ../obj/%.o, $(src))
+myargs= -I../inc -g
+ALL:a.out
+a.out:$(obj)
+	gcc $^ -o $@ -g 
+
+$(obj):../obj/%.o:../source/%.c
+	gcc -c $< -o $@ $(myargs)
+
+clean:
+	-rm -rf a.out $(obj)

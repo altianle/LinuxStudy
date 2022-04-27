@@ -1,0 +1,9 @@
+a.out:add.o sub.o test.o
+	gcc add.o sub.o test.o -o a.out
+add.o:add.c 
+	gcc -c add.c -o add.o
+sub.o:sub.c
+	gcc -c sub.c -o sub.o
+test.o:test.c
+	gcc -c test.c -o test.o
+
